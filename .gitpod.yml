@@ -1,16 +1,118 @@
-image: gitpod/workspace-base
+image: gitpod/workspace-full-vnc
+
+ports:
+- name: JBrowseWeb
+  description: The JBrowse Webserver port
+  port: 3000
+  onOpen: open-browser
+  visibility: public
+
+- name: HiGlass
+  description: The HiGlass port
+  port: 8989
+  onOpen: open-browser
+  visibility: public
 
 tasks:
-- name: install mamba
-  command: |
-    curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
-    bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/conda && rm Mambaforge-$(uname)-$(uname -m).sh
-    /workspace/conda/bin/mamba init bash
+  - name: Install Singularity 3.11.4
+  # https://docs.sylabs.io/guides/3.0/user-guide/installation.html
+    command: |
+      sudo apt-get update && sudo apt-get install -y \
+      build-essential \
+      libssl-dev \
+      uuid-dev \
+      libgpgme11-dev \
+      squashfs-tools \
+      libseccomp-dev \
+      pkg-config
 
-    source ${HOME}/.bashrc
+      mkdir -p $GOPATH/src/github.com/sylabs && \
+      cd $GOPATH/src/github.com/sylabs && \
+      wget https://github.com/sylabs/singularity/releases/download/v3.11.4/singularity-ce-3.11.4.tar.gz && \
+      tar -xzf singularity-ce-3.11.4.tar.gz && \
+      cd ./singularity-ce-3.11.4 && \
+      ./mconfig
+
+      ./mconfig && \
+      make -C ./builddir && \
+      sudo make -C ./builddir install
+
+      cd /workspace/pod-testing/
+  
+  - name: Install Nextflow
+  # https://www.nextflow.io/docs/latest/getstarted.html
+    command: |
+      wget -qO- https://get.nextflow.io | bash
+
+      chmod +x nextflow
+
+      nextflow self-update
+
+      cd /workspace/pod-testing/
+
+  - name: Install JBrowse2
+  # https://jbrowse.org/jb2/download/#jbrowse-cli-tools
+    command: |
+      npm install -g @jbrowse/cli
+
+      jbrowse create jbrowse2
+
+      cd jbrowse2/
+
+      npx serve . -l 3000
+
+      cd /workspace/pod-testing/
+
+  - name: Install TreeVal Pipeline
+  # https://github.com/sanger-tol/treeval
+    command: |
+      git clone -b pre-tag https://github.com/sanger-tol/treeval.git
+
+  - name: Install Curtation Pretext
+  # https://github.com/sanger-tol/curationpretext
+    command: |
+      git clone -b dev https://github.com/sanger-tol/curationpretext.git
+
+  - name: Install HiGlass
+  # https://docs.higlass.io/tutorial.html
+    command: |
+      pip install higlass-manage
+
+      higlass-manage start
+  
+  - name: Alias Nextflow
+    command: |
+      echo "alias nextflow_cmd='/workspace/pod-testing/nextflow'" >> ~/.bashrc
+
+      source ~/.bashrc
+
+  - name: Download busco for nematode
+    command: |
+      curl https://dp24.cog.sanger.ac.uk/Busco.tar.gz | tar xzf -
+
+  - name: Download Nematode Test data and make synteny
+    command: |
+      curl https://dp24.cog.sanger.ac.uk/Nematode.tar.gz | tar xzf -
+
+      mkdir -p /workspace/pod-testing/synteny/nematode/
+
+      cp /workspace/pod-testing/Oscheius_DF5033/genomic_data/Oscheius_DF5033.fa /workspace/pod-testing/synteny/nematode/SuperNematode.fa
+
+  - name: Download Lepidoptera data
+    command: |
+      curl https://dp24.cog.sanger.ac.uk/ilTorViri5.tar.gz | tar xzf -
+
+  - name: Download Genomic Alignment data
+    command: |
+      curl https://dp24.cog.sanger.ac.uk/AlignmentData.tar.gz | tar xzf -  
 
 vscode:
-  extensions:
-    - anwar.papyrus-pdf
-
-workspaceLocation: "/workspace"
+  extensions:                               # based on nf-core.nf-core-extensionpack
+    - codezombiech.gitignore                # Language support for .gitignore files
+    - esbenp.prettier-vscode                # Markdown/CommonMark linting and style checking for Visual Studio Code
+    - eamodio.gitlens                       # Quickly glimpse into whom, why, and when a line or code block was changed
+    - EditorConfig.EditorConfig             # override user/workspace settings with settings found in .editorconfig files
+    - mechatroner.rainbow-csv               # Highlight columns in csv files in different colors
+    - nextflow.nextflow                     # Nextflow syntax highlighting
+    - oderwat.indent-rainbow                # Highlight indentation level
+    - streetsidesoftware.code-spell-checker # Spelling checker for source code
