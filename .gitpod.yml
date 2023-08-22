@@ -106,6 +106,10 @@ tasks:
     command: |
       curl https://dp24.cog.sanger.ac.uk/AlignmentData.tar.gz | tar xzf -  
 
+  - name: Open cheat sheet
+    command: |
+      gp open docs/Tutorial.md
+
 vscode:
   extensions:                               # based on nf-core.nf-core-extensionpack
     - codezombiech.gitignore                # Language support for .gitignore files
