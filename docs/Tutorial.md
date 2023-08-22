@@ -11,9 +11,9 @@ We have put alot of work into TreeVal so hopefully you'll find it incredibly hel
 
 ## The Tutorial
 
-### 1, We will be using GitPod for this tutorial so [**SEND ME TO GITPOD!**](gitpod.io/#https://github.com/BGAcademy23/treeval-curation).
+1, We will be using GitPod for this tutorial so [**SEND ME TO GITPOD!**](gitpod.io/#https://github.com/BGAcademy23/treeval-curation).
 
-### 2, The Nextflow command:
+2, The Nextflow command:
 
 ```
 nextflow_cmd run treeval/main.nf \
@@ -29,11 +29,12 @@ nextflow_cmd run treeval/main.nf \
 	
 	 - Yes, normally you would just be calling `nextflow`, however, we had an issue with adding nextflow to path
 
-<details><summary>Secrets<summary>
-Shhh... Nextflow won't actually run here, but this is an exercise in showing you how little you need to do to get it running
+<details>
+<summary>Secrets</summary>
+	Shhh... Nextflow won't actually run here, but this is an exercise in showing you how little you need to do to get it running
 </details>
 
-### 3, Uploading to JBrowse
+3, Uploading to JBrowse
 
 ```bash
 cd jbrowse2
@@ -85,6 +86,7 @@ nextflow_cmd run curationpretext/main.nf -profile singularity --fasta /workspace
 ```
 nextflow_cmd run curationpretext/main.nf -profile singularity --fasta /workspace/pod-testing/Oscheius_DF5033/genomic_data/Oscheius_DF5033.fa --cram /workspace/pod-testing/Oscheius_DF5033/hic-arima2 --outdir pretext_maps -entry MAPS_ONLY
 ```
-<details><summary>Secrets<summary>
+<details>
+<summary>Secrets</summary>
 	Shhh... Nextflow won't actually run here, but this is an exercise in showing you how little you need to do to get it running
 </details>
