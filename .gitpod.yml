@@ -13,6 +13,12 @@ ports:
   onOpen: open-browser
   visibility: public
 
+- name: Docs
+  description: Port for Docs
+  port: 6969
+  onOpen: open-preview
+  visibility: public
+
 tasks:
   - name: Install Singularity 3.11.4
   # https://docs.sylabs.io/guides/3.0/user-guide/installation.html
