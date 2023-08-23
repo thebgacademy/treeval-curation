@@ -75,7 +75,33 @@ cd ../
 ```
 	- You'll notice that the HiC and punchlist files, arn't listed here. This is because they were rather difficult to get working on the GitPod. I can show this off if you like though.
 
-### 4, CurationPretext
+4, Uploading to Higlass
+
+```
+cd /workspace/treeval-curation/ilTorViri5-BGA/hic_files/
+
+cp {ilTolViri5_1.mcool,../treeval_upload/ilTolViri5_1.genome,ilTolViri5_1_coverage.bigWig,ilTolViri5_1_repeat_density.bigWig,ilTolViri5_1_gap.bed,ilTolViri5_1_telomere.bed} /tmp/higlass-docker/
+
+cd ../../
+
+higlass-manage ingest /tmp/higlass-docker/ilTolViri5_1.mcool --assembly ilTorViri5_1 --project-name TreeVal-test
+
+higlass-manage ingest --filetype chromsizes-tsv --datatype chromsizes --assembly ilTorViri5_1 /tmp/higlass-docker/ilTolViri5_1.genome --project-name TreeVal-test
+
+higlass-manage ingest /tmp/higlass-docker/ilTolViri5_1_coverage.bigWig --assembly ilTorViri5_1 --project-name TreeVal-test
+
+higlass-manage ingest /tmp/higlass-docker/ilTolViri5_1_repeat_density.bigWig --assembly ilTorViri5_1 --project-name TreeVal-test
+
+clodius aggregate bedfile --chromsizes-filename /tmp/higlass-docker/ilTolViri5_1.genome /tmp/higlass-docker/ilTolViri5_1_gap.bed 
+
+higlass-manage ingest /tmp/higlass-docker/ilTolViri5_1_gap.bed.beddb --datatype bedlike --filetype beddb --assembly ilTorViri5_1 --project-name TreeVal-test
+
+clodius aggregate bedfile --chromsizes-filename /tmp/higlass-docker/ilTolViri5_1.genome /tmp/higlass-docker/ilTolViri5_1_telomere.bed
+
+higlass-manage ingest /tmp/higlass-docker/ilTolViri5_1_telomere.bed.beddb --datatype bedlike --filetype beddb --assembly ilTorViri5_1 --project-name TreeVal-test
+```
+
+5, CurationPretext
 
 This pipeline can be run like such:
 
