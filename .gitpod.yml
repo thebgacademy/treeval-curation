@@ -17,6 +17,8 @@ tasks:
   - name: Install Singularity 3.11.4
   # https://docs.sylabs.io/guides/3.0/user-guide/installation.html
     command: |
+      cd /workspace/treeval-curation/
+
       sudo apt-get update && sudo apt-get install -y \
       build-essential \
       libssl-dev \
@@ -36,23 +38,23 @@ tasks:
       ./mconfig && \
       make -C ./builddir && \
       sudo make -C ./builddir install
-
-      cd /workspace/pod-testing/
   
   - name: Install Nextflow
   # https://www.nextflow.io/docs/latest/getstarted.html
     command: |
+      cd /workspace/treeval-curation/
+      
       wget -qO- https://get.nextflow.io | bash
 
       chmod +x nextflow
 
       nextflow self-update
 
-      cd /workspace/pod-testing/
-
   - name: Install JBrowse2
   # https://jbrowse.org/jb2/download/#jbrowse-cli-tools
     command: |
+      cd /workspace/treeval-curation/
+      
       npm install -g @jbrowse/cli
 
       jbrowse create jbrowse2
@@ -61,53 +63,69 @@ tasks:
 
       npx serve . -l 3000
 
-      cd /workspace/pod-testing/
-
   - name: Install TreeVal Pipeline
   # https://github.com/sanger-tol/treeval
     command: |
+      cd /workspace/treeval-curation/
+        
       git clone -b pre-tag https://github.com/sanger-tol/treeval.git
 
   - name: Install Curtation Pretext
   # https://github.com/sanger-tol/curationpretext
     command: |
+      cd /workspace/treeval-curation/
+
       git clone -b dev https://github.com/sanger-tol/curationpretext.git
 
   - name: Install HiGlass
   # https://docs.higlass.io/tutorial.html
     command: |
+      cd /workspace/treeval-curation/
+      
       pip install higlass-manage
 
       higlass-manage start
   
   - name: Alias Nextflow
     command: |
-      echo "alias nextflow_cmd='/workspace/pod-testing/nextflow'" >> ~/.bashrc
+      cd /workspace/treeval-curation/
+      
+      echo "alias nextflow_cmd='/workspace/treeval-curation/nextflow'" >> ~/.bashrc
 
       source ~/.bashrc
 
   - name: Download busco for nematode
     command: |
+      cd /workspace/treeval-curation/
+
       curl https://dp24.cog.sanger.ac.uk/Busco.tar.gz | tar xzf -
 
   - name: Download Nematode Test data and make synteny
     command: |
+      cd /workspace/treeval-curation/
+
       curl https://dp24.cog.sanger.ac.uk/Nematode.tar.gz | tar xzf -
 
-      mkdir -p /workspace/pod-testing/synteny/nematode/
+      mkdir -p /workspace/treeval-curation/synteny/nematode/
 
-      cp /workspace/pod-testing/Oscheius_DF5033/genomic_data/Oscheius_DF5033.fa /workspace/pod-testing/synteny/nematode/SuperNematode.fa
+      cp /workspace/treeval-curation/Oscheius_DF5033/genomic_data/Oscheius_DF5033.fa /workspace/treeval-curation/synteny/nematode/SuperNematode.fa
 
   - name: Download Lepidoptera data
     command: |
+      cd /workspace/treeval-curation/
+
       curl https://dp24.cog.sanger.ac.uk/ilTorViri5.tar.gz | tar xzf -
 
   - name: Download Genomic Alignment data
     command: |
+      cd /workspace/treeval-curation/
+
       curl https://dp24.cog.sanger.ac.uk/AlignmentData.tar.gz | tar xzf -  
 
   - name: Open cheat sheet
     command: |
+      cd /workspace/treeval-curation/
+
       gp open docs/Tutorial.md
 
 vscode:
