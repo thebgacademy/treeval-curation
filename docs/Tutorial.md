@@ -77,6 +77,8 @@ cd ../
 
 4, Uploading to Higlass
 
+You will have to close any current higlass tabs you have open, navigate to the gitpod window, ports and open a new higlass window.
+
 ```
 cd /workspace/treeval-curation/ilTorViri5-BGA/hic_files/
 
