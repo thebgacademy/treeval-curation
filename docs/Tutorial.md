@@ -11,7 +11,7 @@ We have put alot of work into TreeVal so hopefully you'll find it incredibly hel
 
 ## The Tutorial
 
-1, We will be using GitPod for this tutorial so [**SEND ME TO GITPOD!**](gitpod.io/#https://github.com/BGAcademy23/treeval-curation).
+1, We will be using GitPod for this tutorial so [**SEND ME TO GITPOD!**](https://gitpod.io/#https://github.com/BGAcademy23/treeval-curation).
 
 2, The Nextflow command:
 
