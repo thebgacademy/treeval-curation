@@ -15,9 +15,8 @@ ports:
 
 - name: Docs
   description: Port for Docs
-  port: 6969
-  onOpen: open-preview
-  visibility: public
+  port: 6080
+  onOpen: ignore
 
 tasks:
   - name: Install Singularity 3.11.4
