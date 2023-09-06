@@ -16,7 +16,7 @@ ports:
 tasks:
   - name: Install Singularity 3.11.4
   # https://docs.sylabs.io/guides/3.0/user-guide/installation.html
-    command: |
+    init: |
       cd /workspace/treeval-curation/
 
       sudo apt-get update && sudo apt-get install -y \
@@ -41,7 +41,7 @@ tasks:
   
   - name: Install Nextflow
   # https://www.nextflow.io/docs/latest/getstarted.html
-    command: |
+    init: |
       cd /workspace/treeval-curation/
       
       wget -qO- https://get.nextflow.io | bash
@@ -52,7 +52,7 @@ tasks:
 
   - name: Install JBrowse2
   # https://jbrowse.org/jb2/download/#jbrowse-cli-tools
-    command: |
+    init: |
       cd /workspace/treeval-curation/
       
       npm install -g @jbrowse/cli
@@ -61,25 +61,25 @@ tasks:
 
       cd jbrowse2/
 
-      npx serve . -l 3000
+      yes | npx serve . -l 3000
 
   - name: Install TreeVal Pipeline
   # https://github.com/sanger-tol/treeval
-    command: |
+    init: |
       cd /workspace/treeval-curation/
         
       git clone -b pre-tag https://github.com/sanger-tol/treeval.git
 
   - name: Install Curtation Pretext
   # https://github.com/sanger-tol/curationpretext
-    command: |
+    init: |
       cd /workspace/treeval-curation/
 
       git clone -b dev https://github.com/sanger-tol/curationpretext.git
 
   - name: Install HiGlass
   # https://docs.higlass.io/tutorial.html
-    command: |
+    init: |
       cd /workspace/treeval-curation/
       
       pip install higlass-manage
@@ -87,7 +87,7 @@ tasks:
       higlass-manage start
   
   - name: Alias Nextflow
-    command: |
+    init: |
       cd /workspace/treeval-curation/
       
       echo "alias nextflow_cmd='/workspace/treeval-curation/nextflow'" >> ~/.bashrc
@@ -95,13 +95,13 @@ tasks:
       source ~/.bashrc
 
   - name: Download busco for nematode
-    command: |
+    init: |
       cd /workspace/treeval-curation/
 
       curl https://dp24.cog.sanger.ac.uk/Busco.tar.gz | tar xzf -
 
   - name: Download Nematode Test data and make synteny
-    command: |
+    init: |
       cd /workspace/treeval-curation/
 
       curl https://dp24.cog.sanger.ac.uk/Nematode.tar.gz | tar xzf -
@@ -111,19 +111,19 @@ tasks:
       cp /workspace/treeval-curation/Oscheius_DF5033/genomic_data/Oscheius_DF5033.fa /workspace/treeval-curation/synteny/nematode/SuperNematode.fa
 
   - name: Download Lepidoptera data
-    command: |
+    init: |
       cd /workspace/treeval-curation/
 
       curl https://dp24.cog.sanger.ac.uk/ilTorViri5.tar.gz | tar xzf -
 
   - name: Download Genomic Alignment data
-    command: |
+    init: |
       cd /workspace/treeval-curation/
 
       curl https://dp24.cog.sanger.ac.uk/AlignmentData.tar.gz | tar xzf -  
 
   - name: Open Tutorial Page
-    command: |
+    init: |
       gp preview https://bga23.org/treeval-curation/Tutorial/
 
 github:
