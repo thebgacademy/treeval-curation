@@ -17,14 +17,10 @@ We have put alot of work into TreeVal so hopefully you'll find it incredibly hel
 
 ```
 nextflow_cmd run treeval/main.nf \
-
 -profile singularity \
-
 --input treeval/assets/local_testing/nxOscDF5033.yaml \
-
 --outdir OscDF5033-TEST \
-
--entry {FULL | RAPID}
+-entry RAPID
 ```
 	
 	 - Yes, normally you would just be calling `nextflow`, however, we had an issue with adding nextflow to path
