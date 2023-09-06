@@ -18,12 +18,12 @@ We have put alot of work into TreeVal so hopefully you'll find it incredibly hel
 ```
 nextflow_cmd run treeval/main.nf \
 -profile singularity \
---input treeval/assets/local_testing/nxOscDF5033.yaml \
+--input treeval/assets/local_testing/nxOscDF5033-BGA.yaml \
 --outdir OscDF5033-TEST \
 -entry RAPID
 ```
-	
-	 - Yes, normally you would just be calling `nextflow`, however, we had an issue with adding nextflow to path
+
+  - Yes, normally you would just be calling `nextflow`, however, we had an issue with adding nextflow to path.
 
 <details>
 <summary>Secrets</summary>
@@ -69,7 +69,7 @@ jbrowse add-track /workspace/treeval-curation/ilTorViri5-BGA/treeval_upload/Heli
 
 cd ../
 ```
-	- You'll notice that the HiC and punchlist files, arn't listed here. This is because they were rather difficult to get working on the GitPod. I can show this off if you like though.
+  - You'll notice that the HiC and punchlist files, aren't listed here. This is because they were rather difficult to get working on the GitPod. I can show this off if you like though.
 
 4, Uploading to Higlass
 
