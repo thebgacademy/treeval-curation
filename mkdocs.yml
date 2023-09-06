@@ -3,6 +3,7 @@ edit_uri: https://github.com/bgacademy23/treeval-curation/blob/main/docs
 
 nav:
     - Home: README.md
+    - Tutorial: Tutorial.md
     - BGA23: https://bga23.org
 
 theme:
