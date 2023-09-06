@@ -104,11 +104,11 @@ higlass-manage ingest /tmp/higlass-docker/ilTolViri5_1_telomere.bed.beddb --data
 This pipeline can be run like such:
 
 ```
-nextflow_cmd run curationpretext/main.nf -profile singularity --fasta /workspace/treeval-curation/Oscheius_DF5033/genomic_data/Oscheius_DF5033.fa --pacbio /workspace/treeval-curation/Oscheius_DF5033/pacbio/ --cram /workspace/treeval-curation/Oscheius_DF5033/hic-arima2/ --outdir pretext_full -entry ALL_FILES
+nextflow_cmd run curationpretext/main.nf -profile singularity --input /workspace/treeval-curation/Oscheius_DF5033/genomic_data/Oscheius_DF5033.fa --pacbio /workspace/treeval-curation/Oscheius_DF5033/pacbio/ --cram /workspace/treeval-curation/Oscheius_DF5033/hic-arima2/ --outdir pretext_full -entry ALL_FILES
 ```
 
 ```
-nextflow_cmd run curationpretext/main.nf -profile singularity --fasta /workspace/treeval-curation/Oscheius_DF5033/genomic_data/Oscheius_DF5033.fa --cram /workspace/treeval-curation/Oscheius_DF5033/hic-arima2 --outdir pretext_maps -entry MAPS_ONLY
+nextflow_cmd run curationpretext/main.nf -profile singularity --input /workspace/treeval-curation/Oscheius_DF5033/genomic_data/Oscheius_DF5033.fa --cram /workspace/treeval-curation/Oscheius_DF5033/hic-arima2 --outdir pretext_maps -entry MAPS_ONLY
 ```
 <details>
 <summary>Secrets</summary>
