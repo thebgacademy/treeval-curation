@@ -13,11 +13,6 @@ ports:
   onOpen: open-browser
   visibility: public
 
-- name: Docs
-  description: Port for Docs
-  port: 6080
-  onOpen: ignore
-
 tasks:
   - name: Install Singularity 3.11.4
   # https://docs.sylabs.io/guides/3.0/user-guide/installation.html
@@ -127,11 +122,9 @@ tasks:
 
       curl https://dp24.cog.sanger.ac.uk/AlignmentData.tar.gz | tar xzf -  
 
-  - name: Open cheat sheet
+  - name: Open Tutorial Page
     command: |
-      cd /workspace/treeval-curation/
-
-      gp open docs/Tutorial.md
+      gp preview https://bga23.org/treeval-curation/Tutorial/
 
 github:
   prebuilds:
