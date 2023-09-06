@@ -52,7 +52,7 @@ tasks:
 
   - name: Install JBrowse2
   # https://jbrowse.org/jb2/download/#jbrowse-cli-tools
-    init: |
+    command: |
       cd /workspace/treeval-curation/
       
       npm install -g @jbrowse/cli
@@ -61,7 +61,7 @@ tasks:
 
       cd jbrowse2/
 
-      yes | npx serve . -l 3000
+      npx serve . -l 3000
 
   - name: Install TreeVal Pipeline
   # https://github.com/sanger-tol/treeval
