@@ -22,6 +22,8 @@ By the end of this session you will be able to:
 4. Understand what the different components of the pipeline do
 5. Upload results to JBrowse and look at our data.
 
+## [Tutorial](Tutorial.md)
+
 ## Prerequisites
 
 1. Understanding of the terms genome assembly, genome curation, HiC, genome browsers
