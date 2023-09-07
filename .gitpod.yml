@@ -1,5 +1,5 @@
 image: gitpod/workspace-full-vnc
-
+# Update 7th September to reflect code base changes
 ports:
 - name: JBrowseWeb
   description: The JBrowse Webserver port
