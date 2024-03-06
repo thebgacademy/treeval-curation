@@ -126,17 +126,6 @@ tasks:
     init: |
       gp preview https://bga23.org/treeval-curation/Tutorial/
 
-github:
-  prebuilds:
-    # enable for the master/default branch (defaults to true)
-    master: true
-    # add a "Review in Gitpod" button as a comment to pull requests (defaults to true)
-    addComment: true
-    # add a "Review in Gitpod" button to pull requests (defaults to false)
-    addBadge: true
-    # add a label once the prebuild is ready to pull requests (defaults to false)
-    addLabel: prebuilt-in-gitpod
-
 vscode:
   extensions:                               # based on nf-core.nf-core-extensionpack
     - codezombiech.gitignore                # Language support for .gitignore files
