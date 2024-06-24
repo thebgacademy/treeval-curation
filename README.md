@@ -1,6 +1,8 @@
 # The Treeval pipeline: Generating evidence for manual curation
 
-This session is part of [**Biodiversity Genomics Academy 2023**](https://BGA23.org)
+This session is part of [**Biodiversity Genomics Academy 2024**](https://thebgacademy.org)
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/thebgacademy/treeval-curation) 
 
 ## Session Leader(s)
 
@@ -34,4 +36,4 @@ By the end of this session you will be able to:
 
     Please also read the description carefully to see if this session is relevant to you.
     
-    If you don't meet the prerequisites or change your mind based on the description or are no longer available at the session time, please email tol-training at sanger.ac.uk to cancel your slot so that someone else on the waitlist might attend.
+    If you don't meet the prerequisites or change your mind based on the description or are no longer available at the session time, please email damon at thebgacademy.org to cancel your slot so that someone else on the waitlist might attend.
