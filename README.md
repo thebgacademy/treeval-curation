@@ -1,6 +1,6 @@
 # The Treeval pipeline: Generating evidence for manual curation
 
-#BGA24/sessions #GitPod
+#BGA24/sessions #GitPod #Pipeline #Nextflow
 
 This session is part of [**Biodiversity Genomics Academy 2024**](https://thebgacademy.org)
 
