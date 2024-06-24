@@ -11,7 +11,7 @@ This session is part of [**Biodiversity Genomics Academy 2024**](https://thebgac
 Tree of Life Assembly, Wellcome Sanger Institute
 
 - Damon-Lee Pointon
-- Ying Sims
+- Ying Sims, PhD
 - Will Eagles
 
 ## Description
