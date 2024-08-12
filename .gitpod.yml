@@ -45,7 +45,7 @@ tasks:
         
       git clone -b 1.1.1 https://github.com/sanger-tol/treeval.git
 
-  - name: Install Curtation Pretext
+  - name: Install Curation Pretext
   # https://github.com/sanger-tol/curationpretext
     init: |
       cd /workspace/treeval-curation/
