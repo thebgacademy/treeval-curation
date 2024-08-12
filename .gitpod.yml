@@ -14,32 +14,7 @@ ports:
   visibility: public
 
 tasks:
-  - name: Install Singularity 3.11.4
-  # https://docs.sylabs.io/guides/3.0/user-guide/installation.html
-    init: |
-      cd /workspace/treeval-curation/
-
-      sudo apt-get update && sudo apt-get install -y \
-      build-essential \
-      libssl-dev \
-      uuid-dev \
-      libgpgme11-dev \
-      squashfs-tools \
-      libseccomp-dev \
-      pkg-config
-
-      mkdir -p $GOPATH/src/github.com/sylabs && \
-      cd $GOPATH/src/github.com/sylabs && \
-      wget https://github.com/sylabs/singularity/releases/download/v3.11.4/singularity-ce-3.11.4.tar.gz && \
-      tar -xzf singularity-ce-3.11.4.tar.gz && \
-      cd ./singularity-ce-3.11.4 && \
-      ./mconfig
-
-      ./mconfig && \
-      make -C ./builddir && \
-      sudo make -C ./builddir install
-  
-  - name: Install Nextflow
+- name: Install Nextflow
   # https://www.nextflow.io/docs/latest/getstarted.html
     init: |
       cd /workspace/treeval-curation/
@@ -48,7 +23,7 @@ tasks:
 
       chmod +x nextflow
 
-      nextflow self-update
+      sudo mv nextflow /usr/local/bin
 
   - name: Install JBrowse2
   # https://jbrowse.org/jb2/download/#jbrowse-cli-tools
@@ -68,14 +43,14 @@ tasks:
     init: |
       cd /workspace/treeval-curation/
         
-      git clone -b pre-tag https://github.com/sanger-tol/treeval.git
+      git clone -b 1.1.1 https://github.com/sanger-tol/treeval.git
 
   - name: Install Curtation Pretext
   # https://github.com/sanger-tol/curationpretext
     init: |
       cd /workspace/treeval-curation/
 
-      git clone -b dev https://github.com/sanger-tol/curationpretext.git
+      git clone -b 1.0.0 https://github.com/sanger-tol/curationpretext.git
 
   - name: Install HiGlass
   # https://docs.higlass.io/tutorial.html
@@ -85,14 +60,6 @@ tasks:
       pip install higlass-manage
 
       higlass-manage start
-  
-  - name: Alias Nextflow
-    init: |
-      cd /workspace/treeval-curation/
-      
-      echo "alias nextflow_cmd='/workspace/treeval-curation/nextflow'" >> ~/.bashrc
-
-      source ~/.bashrc
 
   - name: Download busco for nematode
     init: |
@@ -124,7 +91,7 @@ tasks:
 
   - name: Open Tutorial Page
     init: |
-      gp preview https://bga23.org/treeval-curation/Tutorial/
+      gp preview https://thebgacademy.org/BGA24/Session-Documents/TreeVal/TreeVal-Tutorial
 
 vscode:
   extensions:                               # based on nf-core.nf-core-extensionpack
