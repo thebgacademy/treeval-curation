@@ -14,7 +14,7 @@ ports:
   visibility: public
 
 tasks:
-- name: Install Nextflow
+  - name: Install Nextflow
   # https://www.nextflow.io/docs/latest/getstarted.html
     init: |
       cd /workspace/treeval-curation/
