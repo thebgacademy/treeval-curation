@@ -1,0 +1,36 @@
+assembly:
+  assem_level: scaffold
+  sample_id: Oscheius_DF5033
+  defined_class: nematode
+  assem_version: 1
+  project_id: DTOL
+reference_file: /workspace/treeval-curation/Oscheius_DF5033/genomic_data/Oscheius_DF5033.fa
+map_order: length
+assem_reads:
+  read_type: hifi
+  read_data: /workspace/treeval-curation/Oscheius_DF5033/pacbio/
+  supplementary_data: path
+hic_data:
+  hic_cram: /workspace/treeval-curation/Oscheius_DF5033/hic-arima2/
+  hic_aligner: minimap2
+alignment:
+  data_dir: /workspace/treeval-curation/gene_alignment_data/
+  geneset: "OscheiusTipulae.ASM1342590v1,CaenorhabditisElegans.WBcel235,Gae_host.Gae"
+  common_name: "not in use"
+self_comp:
+  motif_len: 0
+  mummer_chunk: 10
+intron:
+  size: "50k"
+telomere:
+  teloseq: TTAGGG
+synteny:
+  synteny_path: /workspace/treeval-curation/synteny
+  synteny_genomes: "SuperNematode"
+busco:
+  lineages_path: /workspace/treeval-curation/busco/v5
+  lineage: nematoda_odb10
+kmer_profile:
+  # kmer_length will act as input for kmer_read_cov fastk and as the name of folder in profile_dir
+  kmer_length: 31
+  dir: /workspace/treeval-curation/
