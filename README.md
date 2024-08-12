@@ -6,6 +6,8 @@ This session is part of [**Biodiversity Genomics Academy 2024**](https://thebgac
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/thebgacademy/treeval-curation) 
 
+The tutorial for this session can be found here ![TreeVal-Tutorial](https://thebgacademy.org/BGA24/Session-Documents/TreeVal/TreeVal-Tutorial).
+
 ## Session Leader(s)
 
 Tree of Life Assembly, Wellcome Sanger Institute
