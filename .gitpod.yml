@@ -45,6 +45,13 @@ tasks:
         
       git clone -b 1.1.1 https://github.com/sanger-tol/treeval.git
 
+  - name: Install FasMan
+    # https://github.com/Rust-Wellcome/FasMan
+    init: |
+      cd /workspace/treeval-curation/
+      
+      git clone https://github.com/Rust-Wellcome/FasMan.git -b dp24_validateyaml
+
   - name: Install Curation Pretext
   # https://github.com/sanger-tol/curationpretext
     init: |
