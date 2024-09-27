@@ -14,7 +14,7 @@ hic_data:
   hic_cram: /workspace/treeval-curation/Oscheius_DF5033/hic-arima2/
   hic_aligner: minimap2
 alignment:
-  data_dir: /workspace/treeval-curation/gene_alignment_data/
+  data_dir: /workspace/treeval-curation/genomic_alignment_data/
   geneset: "OscheiusTipulae.ASM1342590v1,CaenorhabditisElegans.WBcel235,Gae_host.Gae"
   common_name: "not in use"
 self_comp:
