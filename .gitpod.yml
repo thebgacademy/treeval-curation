@@ -50,7 +50,7 @@ tasks:
     init: |
       cd /workspace/treeval-curation/
       
-      git clone https://github.com/Rust-Wellcome/FasMan.git -b dev
+      git clone https://github.com/Rust-Wellcome/FasMan.git -b dp24_split_scaff
 
       cd /workspace/treeval-curation/FasMan/
       
