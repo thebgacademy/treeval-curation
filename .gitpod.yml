@@ -30,7 +30,7 @@ tasks:
     command: |
       cd /workspace/treeval-curation/
       
-      echo y | npm install --silent -g @jbrowse/cli
+      npm install -g @jbrowse/cli serve
 
       jbrowse create jbrowse2
 
